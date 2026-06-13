@@ -58,7 +58,7 @@ To run a specific course episode:
 ### 1. Navigate to the Episode Folder
 
 ```bash
-cd episode\ < episodeNumber >
+cd episode\ <episodeNumber>
 ```
 
 ### 2. Run the Main File
