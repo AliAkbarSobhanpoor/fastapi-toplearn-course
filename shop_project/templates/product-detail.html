@@ -1,0 +1,70 @@
+{% extends 'main.html' %}
+
+{% block header_link %}
+    <link rel="stylesheet" href="{{ url_for('static', path='product-detail.css') }}">
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <a href="product-list.html" class="back-link">Back to Products →</a>
+
+        <div class="product-detail">
+            <div class="product-content">
+                <!-- Product Image -->
+                <div class="product-image">Product Image</div>
+
+                <!-- Product Information -->
+                <div class="product-info">
+                    <h1>Laptop Pro</h1>
+
+                    <div class="price">$999.00</div>
+
+                    <div class="rating">⭐⭐⭐⭐⭐ (24 reviews)</div>
+
+                    <div class="description">
+                        Experience ultimate performance with the Laptop Pro. Featuring the latest processor technology,
+                        stunning display, and all-day battery life. Perfect for professionals and content creators who
+                        demand excellence.
+                    </div>
+
+                    <!-- Specifications -->
+                    <div class="specs">
+                        <h3>Specifications</h3>
+                        <div class="spec-item">
+                            <span class="spec-label">Processor:</span>
+                            <span class="spec-value">Intel Core i7 13th Gen</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">RAM:</span>
+                            <span class="spec-value">16GB DDR5</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Storage:</span>
+                            <span class="spec-value">512GB SSD</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Display:</span>
+                            <span class="spec-value">15.6" 4K IPS</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Battery:</span>
+                            <span class="spec-value">Up to 10 hours</span>
+                        </div>
+                    </div>
+
+                    <!-- Quantity Selector -->
+                    <div class="quantity-selector">
+                        <label for="quantity">Quantity:</label>
+                        <input type="number" id="quantity" class="quantity-input" value="1" min="1">
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="buttons">
+                        <button class="btn btn-primary">Add to Cart</button>
+                        <button class="btn btn-secondary">Add to Wishlist</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

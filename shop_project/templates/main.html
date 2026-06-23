@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Detail</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='main.css') }}">
+    {% block header_link %}{% endblock %}
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">Shop</div>
+            <div class="header-actions">
+                <a href="#" class="icon-link" title="Login">👤</a>
+                <a href="#" class="icon-link" title="Cart">
+                    🛒
+                    <span class="cart-badge">3</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        {% block content %}
+
+        {% endblock %}
+    </main>
+</body>
+</html>

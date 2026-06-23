@@ -10,7 +10,7 @@
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: Arial, sans-serif;
             background: #f5f5f5;
@@ -74,16 +74,16 @@
             font-size: 12px;
             font-weight: bold;
         }
-        
+
         main {
             padding: 20px;
         }
-        
+
         .container {
             max-width: 1000px;
             margin: 0 auto;
         }
-        
+
         .back-link {
             display: inline-block;
             margin-bottom: 20px;
@@ -91,25 +91,25 @@
             text-decoration: none;
             font-size: 14px;
         }
-        
+
         .back-link:hover {
             text-decoration: underline;
         }
-        
+
         .product-detail {
             background: white;
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
-        
+
         .product-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 40px;
             padding: 40px;
         }
-        
+
         .product-image {
             width: 100%;
             height: 400px;
@@ -121,78 +121,78 @@
             font-size: 16px;
             color: #999;
         }
-        
+
         .product-info h1 {
             font-size: 32px;
             margin-bottom: 15px;
             color: #333;
         }
-        
+
         .price {
             font-size: 28px;
             color: #e74c3c;
             font-weight: bold;
             margin-bottom: 20px;
         }
-        
+
         .rating {
             color: #f39c12;
             font-size: 14px;
             margin-bottom: 20px;
         }
-        
+
         .description {
             font-size: 16px;
             color: #666;
             line-height: 1.6;
             margin-bottom: 30px;
         }
-        
+
         .specs {
             background: #f9f9f9;
             padding: 20px;
             border-radius: 4px;
             margin-bottom: 30px;
         }
-        
+
         .specs h3 {
             font-size: 16px;
             margin-bottom: 15px;
             color: #333;
         }
-        
+
         .spec-item {
             display: flex;
             justify-content: space-between;
             padding: 10px 0;
             border-bottom: 1px solid #e0e0e0;
         }
-        
+
         .spec-item:last-child {
             border-bottom: none;
         }
-        
+
         .spec-label {
             color: #666;
             font-weight: bold;
         }
-        
+
         .spec-value {
             color: #333;
         }
-        
+
         .quantity-selector {
             display: flex;
             align-items: center;
             gap: 10px;
             margin-bottom: 20px;
         }
-        
+
         .quantity-selector label {
             font-weight: bold;
             color: #333;
         }
-        
+
         .quantity-input {
             width: 60px;
             padding: 8px;
@@ -200,12 +200,12 @@
             border-radius: 4px;
             font-size: 14px;
         }
-        
+
         .buttons {
             display: flex;
             gap: 15px;
         }
-        
+
         .btn {
             flex: 1;
             padding: 15px;
@@ -216,36 +216,36 @@
             cursor: pointer;
             transition: background 0.3s;
         }
-        
+
         .btn-primary {
             background: #27ae60;
             color: white;
         }
-        
+
         .btn-primary:hover {
             background: #229954;
         }
-        
+
         .btn-secondary {
             background: #95a5a6;
             color: white;
         }
-        
+
         .btn-secondary:hover {
             background: #7f8c8d;
         }
-        
+
         @media (max-width: 768px) {
             .product-content {
                 grid-template-columns: 1fr;
                 gap: 20px;
                 padding: 20px;
             }
-            
+
             .product-info h1 {
                 font-size: 24px;
             }
-            
+
             .buttons {
                 flex-direction: column;
             }
@@ -253,42 +253,43 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="header-container">
-            <div class="logo">Shop</div>
-            <div class="header-actions">
-                <a href="#" class="icon-link" title="Login">👤</a>
-                <a href="#" class="icon-link" title="Cart">
-                    🛒
-                    <span class="cart-badge">3</span>
-                </a>
-            </div>
+<!-- Header -->
+<header>
+    <div class="header-container">
+        <div class="logo">Shop</div>
+        <div class="header-actions">
+            <a href="#" class="icon-link" title="Login">👤</a>
+            <a href="#" class="icon-link" title="Cart">
+                🛒
+                <span class="cart-badge">3</span>
+            </a>
         </div>
-    </header>
+    </div>
+</header>
 
-    <main>
+<main>
     <div class="container">
         <a href="product-list.html" class="back-link">Back to Products →</a>
-        
+
         <div class="product-detail">
             <div class="product-content">
                 <!-- Product Image -->
                 <div class="product-image">Product Image</div>
-                
+
                 <!-- Product Information -->
                 <div class="product-info">
                     <h1>Laptop Pro</h1>
-                    
+
                     <div class="price">$999.00</div>
-                    
+
                     <div class="rating">⭐⭐⭐⭐⭐ (24 reviews)</div>
-                    
+
                     <div class="description">
-                        Experience ultimate performance with the Laptop Pro. Featuring the latest processor technology, 
-                        stunning display, and all-day battery life. Perfect for professionals and content creators who demand excellence.
+                        Experience ultimate performance with the Laptop Pro. Featuring the latest processor technology,
+                        stunning display, and all-day battery life. Perfect for professionals and content creators who
+                        demand excellence.
                     </div>
-                    
+
                     <!-- Specifications -->
                     <div class="specs">
                         <h3>Specifications</h3>
@@ -313,13 +314,13 @@
                             <span class="spec-value">Up to 10 hours</span>
                         </div>
                     </div>
-                    
+
                     <!-- Quantity Selector -->
                     <div class="quantity-selector">
                         <label for="quantity">Quantity:</label>
                         <input type="number" id="quantity" class="quantity-input" value="1" min="1">
                     </div>
-                    
+
                     <!-- Action Buttons -->
                     <div class="buttons">
                         <button class="btn btn-primary">Add to Cart</button>
@@ -329,6 +330,6 @@
             </div>
         </div>
     </div>
-    </main>
+</main>
 </body>
 </html>

@@ -10,12 +10,12 @@
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: Arial, sans-serif;
             background: #f5f5f5;
         }
-        
+
         /* Header Styles */
         header {
             background: white;
@@ -23,7 +23,7 @@
             padding: 15px 20px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         }
-        
+
         .header-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -31,19 +31,19 @@
             justify-content: space-between;
             align-items: center;
         }
-        
+
         .logo {
             font-size: 24px;
             font-weight: bold;
             color: #333;
         }
-        
+
         .header-actions {
             display: flex;
             gap: 30px;
             align-items: center;
         }
-        
+
         .icon-link {
             display: flex;
             align-items: center;
@@ -54,11 +54,11 @@
             position: relative;
             transition: color 0.3s;
         }
-        
+
         .icon-link:hover {
             color: #3498db;
         }
-        
+
         .cart-badge {
             position: absolute;
             top: -8px;
@@ -74,27 +74,27 @@
             font-size: 12px;
             font-weight: bold;
         }
-        
+
         main {
             padding: 20px;
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
         }
-        
+
         h1 {
             margin-bottom: 30px;
             color: #333;
         }
-        
+
         .products {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 20px;
         }
-        
+
         .product-card {
             background: white;
             border-radius: 8px;
@@ -103,12 +103,12 @@
             transition: transform 0.3s;
             cursor: pointer;
         }
-        
+
         .product-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
-        
+
         .product-image {
             width: 100%;
             height: 200px;
@@ -119,32 +119,32 @@
             font-size: 14px;
             color: #999;
         }
-        
+
         .product-info {
             padding: 15px;
         }
-        
+
         .product-name {
             font-size: 18px;
             font-weight: bold;
             margin-bottom: 8px;
             color: #333;
         }
-        
+
         .product-price {
             font-size: 20px;
             color: #e74c3c;
             font-weight: bold;
             margin-bottom: 10px;
         }
-        
+
         .product-description {
             font-size: 14px;
             color: #666;
             margin-bottom: 12px;
             line-height: 1.4;
         }
-        
+
         .btn {
             background: #3498db;
             color: white;
@@ -155,31 +155,31 @@
             font-size: 14px;
             width: 100%;
         }
-        
+
         .btn:hover {
             background: #2980b9;
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="header-container">
-            <div class="logo">Shop</div>
-            <div class="header-actions">
-                <a href="#" class="icon-link" title="Login">👤</a>
-                <a href="#" class="icon-link" title="Cart">
-                    🛒
-                    <span class="cart-badge">3</span>
-                </a>
-            </div>
+<!-- Header -->
+<header>
+    <div class="header-container">
+        <div class="logo">Shop</div>
+        <div class="header-actions">
+            <a href="#" class="icon-link" title="Login">👤</a>
+            <a href="#" class="icon-link" title="Cart">
+                🛒
+                <span class="cart-badge">3</span>
+            </a>
         </div>
-    </header>
+    </div>
+</header>
 
-    <main>
+<main>
     <div class="container">
         <h1>Our Products</h1>
-        
+
         <div class="products">
             <!-- Product 1 -->
             <div class="product-card">
@@ -191,7 +191,7 @@
                     <button class="btn">View Details</button>
                 </div>
             </div>
-            
+
             <!-- Product 2 -->
             <div class="product-card">
                 <div class="product-image">Product Image</div>
@@ -202,7 +202,7 @@
                     <button class="btn">View Details</button>
                 </div>
             </div>
-            
+
             <!-- Product 3 -->
             <div class="product-card">
                 <div class="product-image">Product Image</div>
@@ -213,7 +213,7 @@
                     <button class="btn">View Details</button>
                 </div>
             </div>
-            
+
             <!-- Product 4 -->
             <div class="product-card">
                 <div class="product-image">Product Image</div>
@@ -226,6 +226,6 @@
             </div>
         </div>
     </div>
-    </main>
+</main>
 </body>
 </html>
