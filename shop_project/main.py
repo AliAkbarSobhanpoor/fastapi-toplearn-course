@@ -12,18 +12,5 @@ app.mount("/static", StaticFiles(directory="static"), name="static")  # localhos
 templates = Jinja2Templates(directory="templates")
 StandaloneDocs(app)
 
-
-@app.get("/random-color", response_class=HTMLResponse)
-def home(request: Request):
-    hex_code = ("".join(random.choices(hexdigits.lower(), k=6)))
-    hex_color = f"#{hex_code}"  # -> #a5beb9
-
-    return templates.TemplateResponse(
-        request=request,
-        name="random_color.html",
-        context={"color": hex_color, }
-    )
-
-
 if __name__ == "__main__":
     uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
