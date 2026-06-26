@@ -6,7 +6,7 @@
 
 {% block content %}
     <div class="container">
-        <a href="product-list.html" class="back-link">Back to Products →</a>
+        <a href="{{ url_for("products") }}" class="back-link">بازگشت به لیست محصولات</a>
 
         <div class="product-detail">
             <div class="product-content">
@@ -15,16 +15,13 @@
 
                 <!-- Product Information -->
                 <div class="product-info">
-                    <h1>Laptop Pro</h1>
+                    <h1>{{ product.name }}</h1>
 
-                    <div class="price">$999.00</div>
+                    <div class="price">{{ '{:,}'.format(product.price) }} تومان </div>
 
-                    <div class="rating">⭐⭐⭐⭐⭐ (24 reviews)</div>
 
                     <div class="description">
-                        Experience ultimate performance with the Laptop Pro. Featuring the latest processor technology,
-                        stunning display, and all-day battery life. Perfect for professionals and content creators who
-                        demand excellence.
+                        {{ product.description }}
                     </div>
 
                     <!-- Specifications -->
@@ -32,23 +29,23 @@
                         <h3>Specifications</h3>
                         <div class="spec-item">
                             <span class="spec-label">Processor:</span>
-                            <span class="spec-value">Intel Core i7 13th Gen</span>
+                            <span class="spec-value">{{ product.processor }}</span>
                         </div>
                         <div class="spec-item">
                             <span class="spec-label">RAM:</span>
-                            <span class="spec-value">16GB DDR5</span>
+                            <span class="spec-value">{{ product.ram }}</span>
                         </div>
                         <div class="spec-item">
                             <span class="spec-label">Storage:</span>
-                            <span class="spec-value">512GB SSD</span>
+                            <span class="spec-value">{{ product.storage }}</span>
                         </div>
                         <div class="spec-item">
                             <span class="spec-label">Display:</span>
-                            <span class="spec-value">15.6" 4K IPS</span>
+                            <span class="spec-value">{{ product.display }}</span>
                         </div>
                         <div class="spec-item">
                             <span class="spec-label">Battery:</span>
-                            <span class="spec-value">Up to 10 hours</span>
+                            <span class="spec-value">{{ product.battery }}</span>
                         </div>
                     </div>
 
