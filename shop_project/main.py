@@ -1,8 +1,12 @@
+import uuid
+from typing import Annotated
 import uvicorn
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Request, Form, Cookie
+from fastapi import status
 from fastapi_standalone_docs import StandaloneDocs
 from fastapi.templating import Jinja2Templates
-from starlette.responses import HTMLResponse
+from pydantic import BaseModel, Field
+from starlette.responses import HTMLResponse, RedirectResponse
 from starlette.staticfiles import StaticFiles
 
 products = [
@@ -118,23 +122,34 @@ products = [
     }
 ]
 
+carts: dict[str, dict[int, int]] = {}  # -> {unique_cart_id: {1:2, 2:3}}
+
 app = FastAPI()
 app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templates")
 StandaloneDocs(app)
 
+
+def get_cart_items_count(cart_id: str) -> int:
+    if cart_id and cart_id in carts:
+        return len(carts[cart_id])
+    return 0
+
+
 @app.get("/", response_class=HTMLResponse, name="products")
-async def shop(request: Request):
+async def shop(request: Request, cart_id: Annotated[str | None, Cookie()] = None):
     return templates.TemplateResponse(
         request=request,
         name="product-list.html",
         context={
             "products": products,
+            "cart_item_count": get_cart_items_count(cart_id),
         }
     )
 
+
 @app.get("/product/{product_id}", response_class=HTMLResponse, name="product_detail")
-async def shop(request: Request, product_id: int):
+async def product_detail(request: Request, product_id: int, cart_id: Annotated[str | None, Cookie()] = None):
     for product in products:
         if product["id"] == product_id:
             return templates.TemplateResponse(
@@ -142,6 +157,7 @@ async def shop(request: Request, product_id: int):
                 name="product-detail.html",
                 context={
                     "product": product,
+                    "cart_item_count": get_cart_items_count(cart_id),
                 }
             )
 
@@ -152,6 +168,39 @@ async def shop(request: Request, product_id: int):
     )
 
 
+class CartItemsForm(BaseModel):
+    quantity: Annotated[int, Field(gt=0)]
+    product_id: Annotated[int, Field(gt=0)]
+
+
+@app.post("/add_to_cart", response_class=RedirectResponse, name="add_to_cart", status_code=status.HTTP_302_FOUND)
+async def add_to_cart(
+        form_data: Annotated[CartItemsForm, Form()],
+        cart_id: Annotated[str | None, Cookie()] = None
+):
+    if cart_id:
+        cart = carts.get(cart_id)
+        if cart:
+            cart[form_data.product_id] = form_data.quantity
+        else:
+            carts[cart_id] = {
+                form_data.product_id: form_data.quantity
+            }
+    else:
+        cart = {
+            form_data.product_id: form_data.quantity
+        }
+        cart_id = str(uuid.uuid4())
+        carts[cart_id] = cart
+
+    response = RedirectResponse(f"/product/{form_data.product_id}", status_code=status.HTTP_302_FOUND)
+    response.set_cookie(
+        key="cart_id",
+        value=cart_id,
+        max_age=30 * 24 * 60 * 60,
+    )
+    return response
+
 
 if __name__ == "__main__":
-    uvicorn.run("main:app", host="0.0.0.0", port=8001, reload=True)
+    uvicorn.run("main:app", host="0.0.0.0", port=8001)
